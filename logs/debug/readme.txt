@@ -1,0 +1,1 @@
+This is where debug files will reside viewable by doing /logs/debug/.

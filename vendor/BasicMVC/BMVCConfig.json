@@ -1,0 +1,14 @@
+{
+    "requiredFilesAndDir": {
+        "namespaces": [
+            "/core/"
+        ],
+        "files": [
+            "/functions.php"
+        ]
+    },
+    "protectedRoutes": [
+        "/logs/php/",
+        "/logs/debug/"
+    ]
+}

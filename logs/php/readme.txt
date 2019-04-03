@@ -1,0 +1,1 @@
+This is where php error files will reside viewable by doing /logs/php/.

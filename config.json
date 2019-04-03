@@ -1,0 +1,10 @@
+{
+    "database": {
+        "DBACTIVE": false,
+        "DBHOST": "localhost",
+        "DBDATABASE": "basicmvc",
+        "DBUSER": "dbuser",
+        "DBPASS": "1234567890"
+    },
+    "env" : "prod"
+}
