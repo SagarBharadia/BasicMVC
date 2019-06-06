@@ -73,6 +73,14 @@ class Database {
     }
 
     /**
+     * Return the pure PDO object.
+     * @return \PDO or \PDOException or null Return the pure pdo or exception object depending if the db is active and can be connected
+     */
+    public function pdo() {
+        return $this->connectionHandle;
+    }
+
+    /**
      * Close the connection handle to the database.
      * Will set $this->connectionHandle to null;
      * @return void
