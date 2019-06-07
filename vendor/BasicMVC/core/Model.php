@@ -3,7 +3,7 @@
 /**
  * Model.php
  * ---------
- * Abstract for a model where other models will extend from.
+ * Outline for a model where other models will extend from.
  * Will serve as the interaction point to the database.
  */
 

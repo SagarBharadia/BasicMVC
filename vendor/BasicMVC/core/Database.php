@@ -67,7 +67,7 @@ class Database {
                 error_log($e, 0);
             }
         } else {
-            $this->queryResult = $this->connectionHandle;
+            $this->queryResult = null;
         }
         return $this->queryResult;
     }
