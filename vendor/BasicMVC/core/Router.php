@@ -79,11 +79,11 @@ class Router {
      */
     private function getController() {
         // Setting path to the controllers directory.
-        $pathToControllerDir = APP_ROOT."controllers";
+        $pathToControllerDir = APP_ROOT."controllers/";
 
         $pathToController = $pathToControllerDir.$this->path.".controller.php";
         $pathToDirIndex = $pathToControllerDir.$this->dir."index.controller.php";
-        $pathToRootControllerIndex = $pathToControllerDir."/index.controller.php";
+        $pathToRootControllerIndex = $pathToControllerDir."index.controller.php";
         if (file_exists($pathToController)) {
             $this->controllerToLoadPath = $pathToController;
         } elseif (file_exists($pathToDirIndex)) {

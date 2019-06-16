@@ -29,7 +29,7 @@ class PHPDebugController extends Controller {
      * Will return the PHP Debug and a basic interface to interact with it.
      */
     public function get() {
-        if(APP_ENV != 'dev') die();
+        if(APP_ENV != 'dev') return abort(404);
 
         // Getting all the PHP Debugs and reversing it to show the latest log.
         $pathToDebugFiles = array_reverse(glob(DEBUG_FILES_DIR."*.debug"));
@@ -69,7 +69,7 @@ class PHPDebugController extends Controller {
      * Will return the log file contents requested.
      */
     public function post() {
-        if(APP_ENV != 'dev') die();
+        if(APP_ENV != 'dev') return abort(404);
         $debugFileRequest = $_POST['debug'] ?? null;
         $returnObj = new StdClass();
         $fullDebugFileLoadPath = APP_ROOT."logs/debug/".$debugFileRequest;

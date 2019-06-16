@@ -41,4 +41,13 @@ class View {
         include($this->pathToView);
         $this->htmlOutput = ob_get_clean();
     }
+
+    /**
+     * Check if view exists.
+     * @var string $pathToView
+     * @return bool
+     */
+    public static function exists($pathToView) {
+        return file_exists(APP_ROOT."views/".$pathToView.".view.php");
+    }
 }

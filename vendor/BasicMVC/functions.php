@@ -50,3 +50,20 @@ function debug(string $message, int $type = 2, $showTrace = false) {
     // Adding the string to the file.
     file_put_contents($debugFilePath, $debugString, FILE_APPEND);
 }
+
+/**
+ * Kill anymore processing and return a error view.
+ * @var int $status is the status code to be returned.
+ */
+function abort(int $status) {
+
+    $pathToErrorView = "errors/".strval($status);
+
+    if(!View::exists($pathToErrorView)) {
+        error_log("Error log file for $status does not exist.", 0);
+        die();
+    } else {
+        return view($pathToErrorView);
+    }
+
+}
