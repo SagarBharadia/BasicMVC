@@ -25,6 +25,7 @@ class PHPLogController extends Controller {
      * Will return the PHP Logs and a basic interface to interact with it.
      */
     public function get() {
+        if(APP_ENV != 'dev') die();
         // Getting all the PHP Logs and reversing it to show the latest log.
         $pathToLogFiles = array_reverse(glob(APP_ROOT."logs/php/*.log"));
         if (!empty($pathToLogFiles)) {
@@ -61,6 +62,7 @@ class PHPLogController extends Controller {
      * Will return the log file contents requested.
      */
     public function post() {
+        if(APP_ENV != 'dev') die();
         $logFileRequest = $_POST['log'] ?? null;
         $returnObj = new StdClass();
         $fullLogFileLoadPath = APP_ROOT."logs/php/".$logFileRequest;
