@@ -24,6 +24,9 @@ ini_set('error_log', APP_ROOT.'logs/php/'.date("d-m-y").'.log');
 define('DEBUG_FILES_DIR', APP_ROOT.'logs/debug/');
 define('CURRENT_DEBUG_FILE', date("d-m-y").'.debug');
 
+// Getting if fallback routes is active or not
+define('FALLBACK_ROUTES', $config->fallbackRoutes);
+
 /* Namespaces and files to load from BasicMVC. */
 $BMVCConfig = json_decode(file_get_contents(__DIR__.'/BMVCConfig.json'));
 
@@ -34,7 +37,20 @@ $protectedRoutes = $BMVCConfig->protectedRoutes;
 $reqBasicMVCDir = $BMVCConfig->requiredFilesAndDir->namespaces;
 $reqBasicMVCFiles = $BMVCConfig->requiredFilesAndDir->files;
 
-/* Loops over the required namespaces in the config.json and loads the namespace */
+/* Loops over the required files in the basicmvcconfig.json and loads the file */
+foreach ($reqBasicMVCFiles as $file) {
+    $pathToFile = __DIR__.$file;
+    if (file_exists($pathToFile)) {
+        if (!is_dir($pathToFile)) {
+            $fileInfo = pathinfo($pathToFile);
+            if($fileInfo['extension'] == "php") {
+                require_once $pathToFile;
+            }
+        }
+    }
+}
+
+/* Loops over the required namespaces in the basicmvcconfig.json and loads the namespace */
 foreach ( $reqBasicMVCDir as $namespace ) {
     $dir = __DIR__.$namespace;
     if (file_exists($dir)) {
@@ -49,17 +65,4 @@ foreach ( $reqBasicMVCDir as $namespace ) {
             }
         }
     }  
-}
-
-/* Loops over the required files in the config.json and loads the file */
-foreach ($reqBasicMVCFiles as $file) {
-    $pathToFile = __DIR__.$file;
-    if (file_exists($pathToFile)) {
-        if (!is_dir($pathToFile)) {
-            $fileInfo = pathinfo($pathToFile);
-            if($fileInfo['extension'] == "php") {
-                require_once $pathToFile;
-            }
-        }
-    }
 }

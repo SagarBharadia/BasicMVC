@@ -32,7 +32,7 @@ class Router {
 
         // Parsing the URL
         $urlParsed = parse_url($_SERVER['REQUEST_URI']);
-        $this->path = $urlParsed['path'];
+        $this->path = ltrim($urlParsed['path'], "/");
 
         // Removing all instances of php extensions.
         while(preg_match("/.php$/", $this->path)) {
@@ -43,7 +43,7 @@ class Router {
         $this->query = $urlParsed['query'] ?? null;
 
         // Getting the directory by rejoining parts (targetted file has already been removed)
-        $this->dir = join('/', $parts)."/";
+        $this->dir = ltrim(join('/', $parts)."/", "/");
 
         // Storing the protectedRoutes
         $this->protectedRoutes = $protectedRoutes;
@@ -81,33 +81,42 @@ class Router {
         // Setting path to the controllers directory.
         $pathToControllerDir = APP_ROOT."controllers/";
 
-        $pathToController = $pathToControllerDir.$this->path.".controller.php";
-        $pathToDirIndex = $pathToControllerDir.$this->dir."index.controller.php";
-        $pathToRootControllerIndex = $pathToControllerDir."index.controller.php";
+        // If it ends with "/" then it is a directory that has been requested, 
+        // if $this->dir is completely empty that means the absolute root index
+        // should be shown as it is requesting the index of the site
+        if(empty($this->targetFile) && empty($this->dir)) {
+            $pathToController = $pathToControllerDir."index.controller.php";
+        } else if (endsWith($this->path, "/")) {
+            $pathToController = $pathToControllerDir.$this->dir."index.controller.php";
+        } else {
+            $pathToController = $pathToControllerDir.$this->path.".controller.php";
+        }
+
         if (file_exists($pathToController)) {
             $this->controllerToLoadPath = $pathToController;
-        } elseif (file_exists($pathToDirIndex)) {
-            $this->controllerToLoadPath = $pathToDirIndex;
-        } elseif (file_exists($pathToRootControllerIndex)) {
-            error_log("Controller ({$pathToController}) doesn't exist and no index.controller.php created in {$this->dir}.", 0);
-            $this->controllerToLoadPath = $pathToRootControllerIndex;
-        } else {
-            throw new ErrorException("Controller doesn't exist and no index.controller.php created in ({$this->dir}) or in root of /controller.<br>Controller Requested: ($pathToController)");
         }
+
+        if(!isset($this->controllerToLoadPath) && FALLBACK_ROUTES == true) {
+            $pathToRootControllerIndex = $pathToControllerDir."index.controller.php";
+            if (file_exists($pathToRootControllerIndex)) {
+                error_log("Controller ({$pathToController}) doesn't exist, falling back to root index controller /controllers/index.controller.php", 0);
+                $this->controllerToLoadPath = $pathToRootControllerIndex;
+            } else {
+                throw new ErrorException("Controller doesn't exist and no index.controller.php created in root of /controllers.<br>Controller Requested: ($pathToController)");
+            }
+        }
+        
     }
 
     /**
      * Will get a controller corresponding to the protected routes from basicmvc if the environment in config is dev
      */
     private function getProtectedController() {
-        $pathToProtectedController = APP_ROOT."vendor/BasicMVC/controllers".$this->dir."index.controller.php";
-        $pathToRootControllerIndex = APP_ROOT."controllers/index.controller.php";
+        $pathToProtectedController = APP_ROOT."vendor/BasicMVC/controllers/".$this->dir."index.controller.php";
         if (file_exists($pathToProtectedController)) {
             $this->controllerToLoadPath = $pathToProtectedController;
-        } elseif (file_exists($pathToRootControllerIndex)) {
-            $this->controllerToLoadPath = $pathToRootControllerIndex;
         } else {
-            throw new ErrorException("Controller ({$pathToProtectedController}) doesn't exist and no controller index created in ({$this->dir}).");
+            throw new ErrorException("Controller ({$pathToProtectedController}) doesn't exist.");
         }
     }
 
@@ -133,13 +142,20 @@ class Router {
         }
 
         // Loading the controller that has been specified to load.
-        $this->controller = include $this->controllerToLoadPath;
+        
+        if (!empty($this->controllerToLoadPath)) {
+            $this->controller = include $this->controllerToLoadPath;
+        } else {
+            return abort(404);
+        }
 
-        if ( !method_exists($this->controller, $this->requestMethod) )  {
-            throw new BadMethodCallException("$this->requestMethod doesn't exist in Controller ({$this->controllerToLoadPath}).");
+        if ( method_exists($this->controller, $this->requestMethod) )  {
+            return $this->controller->{$this->requestMethod}();
+        } else {
+            error_log("BadMethodCall: $this->requestMethod doesn't exist in Controller ({$this->controllerToLoadPath}). Returned 404.", 0);
+            return abort(404);
         }
         
-        return $this->controller->{$this->requestMethod}();
     }
 
     /**

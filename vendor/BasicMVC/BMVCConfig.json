@@ -8,7 +8,7 @@
         ]
     },
     "protectedRoutes": [
-        "/logs/php/",
-        "/logs/debug/"
+        "logs/php/",
+        "logs/debug/"
     ]
 }

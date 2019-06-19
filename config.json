@@ -6,5 +6,6 @@
         "DBUSER": "dbuser",
         "DBPASS": "1234567890"
     },
-    "env" : "prod"
+    "env" : "prod",
+    "fallbackRoutes": false
 }

@@ -57,13 +57,24 @@ function debug(string $message, int $type = 2, $showTrace = false) {
  */
 function abort(int $status) {
 
+    http_response_code($status);
+
     $pathToErrorView = "errors/".strval($status);
 
     if(!View::exists($pathToErrorView)) {
-        error_log("Error log file for $status does not exist.", 0);
+        error_log("Error view file for $status does not exist.", 0);
         die();
     } else {
         return view($pathToErrorView);
     }
 
+}
+
+/**
+ * Check if a string ends with specified string, typical if $haystack ends with $needle
+ * @var string $haystack the string to search in
+ * @var string $needle the string to compare the ending of $haystack with
+ */
+function endsWith($haystack, $needle) {
+    return substr($haystack,-strlen($needle))===$needle;
 }
