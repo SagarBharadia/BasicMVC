@@ -66,3 +66,18 @@ foreach ( $reqBasicMVCDir as $namespace ) {
         }
     }  
 }
+
+/* Loading files from the lib_php directory */
+if(is_dir(APP_ROOT."lib_php/")) {
+    if($files = scandir(APP_ROOT."lib_php/")) {
+        foreach ($files as $file) {
+            $filePath = APP_ROOT."lib_php/".$file;
+            if (!is_dir($filePath)) {
+                $fileInfo = pathinfo($filePath);
+                if($fileInfo['extension'] == "php") {
+                    require_once $filePath;
+                }
+            }
+        }
+    }
+}
