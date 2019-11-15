@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PHP Logs - <?= (isset($title)) ? $title : '' ?></title>
+    <title>PHP Logs - <?php echo (isset($title)) ? $title : '' ?></title>
 </head>
 <body>
     <form action="/logs/php/" method="get">
@@ -14,13 +14,13 @@
                     $filePathExploded = explode("/", $pathToFile);
                     $file = array_pop($filePathExploded); 
                 ?>
-                <option value="<?= $file ?>" <?= ($logFileLoadedName == $file) ? ' selected' : '' ?>><?= $file ?></option>
+                <option value="<?php echo $file ?>" <?php echo ($logFileLoadedName == $file) ? ' selected' : '' ?>><?php echo $file ?></option>
             <?php endforeach; ?>
         </select>
         <button type="submit">View Log</button>
     </form>
     <div id="logFileContents">
-        <?= $logFileContents ?>
+        <?php echo $logFileContents ?>
     </div>
     <script>
         setInterval(() => {
@@ -30,7 +30,7 @@
                     'Content-Type':'application/x-www-form-urlencoded'
                 },
                 method: 'post',
-                body: 'log=<?= $logFileLoadedName ?>'
+                body: 'log=<?php echo $logFileLoadedName ?>'
             })
             .then(function(response) {
                 return response.json();

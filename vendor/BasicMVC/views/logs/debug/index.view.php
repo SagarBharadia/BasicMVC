@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PHP Debug - <?= (isset($title)) ? $title : '' ?></title>
+    <title>PHP Debug - <?php echo (isset($title)) ? $title : '' ?></title>
 </head>
 <body>
     <form action="/logs/debug/" method="get">
@@ -14,13 +14,13 @@
                     $filePathExploded = explode("/", $pathToFile);
                     $file = array_pop($filePathExploded); 
                 ?>
-                <option value="<?= $file ?>" <?= ($debugFileLoadedName == $file) ? ' selected' : '' ?>><?= $file ?></option>
+                <option value="<?php echo $file ?>" <?php echo ($debugFileLoadedName == $file) ? ' selected' : '' ?>><?php echo $file ?></option>
             <?php endforeach; ?>
         </select>
         <button type="submit">View Debug File</button>
     </form>
     <div id="debugFileContents">
-        <?= $debugFileContents ?>
+        <?php echo $debugFileContents ?>
     </div>
     <script>
         setInterval(() => {
@@ -30,7 +30,7 @@
                     'Content-Type':'application/x-www-form-urlencoded'
                 },
                 method: 'post',
-                body: 'debug=<?= $debugFileLoadedName ?>'
+                body: 'debug=<?php echo $debugFileLoadedName ?>'
             })
             .then(function(response) {
                 return response.json();

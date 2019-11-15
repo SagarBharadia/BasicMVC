@@ -8,7 +8,7 @@
  */
 
 /* Including the global autoload */
-include $_SERVER['DOCUMENT_ROOT'].'/../bootstrap.php';
+require $_SERVER['DOCUMENT_ROOT'].'/../bootstrap.php';
 
 // Creating a new Router with the REQUEST_URI
 $router = new Router($_SERVER['REQUEST_URI']);

@@ -5,17 +5,19 @@
  * Simple controller class.
  * 
  * @package BasicMVC
- * @author Sagar Bharadia
+ * @author  Sagar Bharadia
  * @version 1.0
  */
-abstract class Controller {
+abstract class Controller
+{
     public $method;
     private $db;
     
     /**
      * Constructor. Set's up the environment.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = new Database();
     }
 

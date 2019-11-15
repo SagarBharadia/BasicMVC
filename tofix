@@ -1,0 +1,254 @@
+FILE: /Applications/MAMP/htdocs/BasicMVC/bootstrap.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 2 | ERROR | You must use "/**" style comments for a file comment
+----------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/public/index.php
+-------------------------------------------------------------------------------
+FOUND 6 ERRORS AND 3 WARNINGS AFFECTING 4 LINES
+-------------------------------------------------------------------------------
+  4 | ERROR   | Doc comment short description must start with a capital letter
+  6 | WARNING | Line exceeds 85 characters; contains 93 characters
+  8 | WARNING | PHP version not specified
+  8 | ERROR   | Missing @category tag in file comment
+  8 | ERROR   | Missing @package tag in file comment
+  8 | ERROR   | Missing @author tag in file comment
+  8 | ERROR   | Missing @license tag in file comment
+  8 | ERROR   | Missing @link tag in file comment
+ 15 | WARNING | Line exceeds 85 characters; contains 88 characters
+-------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/controllers/index.controller.php
+----------------------------------------------------------------------------
+FOUND 7 ERRORS AFFECTING 3 LINES
+----------------------------------------------------------------------------
+ 1 | ERROR | Missing file doc comment
+ 3 | ERROR | Doc comment short description must start with a capital letter
+ 6 | ERROR | Missing @category tag in class comment
+ 6 | ERROR | Missing @package tag in class comment
+ 6 | ERROR | Missing @author tag in class comment
+ 6 | ERROR | Missing @license tag in class comment
+ 6 | ERROR | Missing @link tag in class comment
+----------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/functions.php
+----------------------------------------------------------------------
+FOUND 14 ERRORS AND 3 WARNINGS AFFECTING 13 LINES
+----------------------------------------------------------------------
+  1 | ERROR   | Missing file doc comment
+  3 | ERROR   | Doc comment for parameter "$pathToView" missing
+  3 | ERROR   | Doc comment for parameter "$payload" missing
+  8 | ERROR   | Missing @return tag in function comment
+ 16 | ERROR   | Doc comment for parameter "$message" missing
+ 16 | ERROR   | Doc comment for parameter "$type" missing
+ 16 | ERROR   | Doc comment for parameter "$showTrace" missing
+ 19 | WARNING | Line exceeds 85 characters; contains 87 characters
+ 20 | WARNING | Line exceeds 85 characters; contains 114 characters
+ 22 | ERROR   | Missing @return tag in function comment
+ 58 | ERROR   | Doc comment for parameter "$status" missing
+ 62 | ERROR   | Missing @return tag in function comment
+ 70 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 79 | ERROR   | Doc comment for parameter "$haystack" missing
+ 79 | ERROR   | Doc comment for parameter "$needle" missing
+ 80 | WARNING | Line exceeds 85 characters; contains 87 characters
+ 84 | ERROR   | Missing @return tag in function comment
+----------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/core/Controller.php
+-----------------------------------------------------------------------------------------------------
+FOUND 7 ERRORS AND 1 WARNING AFFECTING 6 LINES
+-----------------------------------------------------------------------------------------------------
+  1 | ERROR   | Missing file doc comment
+  8 | ERROR   | Content of the @author tag must be in the form "Display Name <username@example.com>"
+  9 | WARNING | Invalid version "1.0" in doc comment; consider "Release: <package_version>" instead
+ 10 | ERROR   | Missing @category tag in class comment
+ 10 | ERROR   | Missing @license tag in class comment
+ 10 | ERROR   | Missing @link tag in class comment
+ 14 | ERROR   | Private member variable "db" must be prefixed with an underscore
+ 27 | ERROR   | Missing @return tag in function comment
+-----------------------------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/core/Database.php
+-----------------------------------------------------------------------------------------------------
+FOUND 10 ERRORS AND 6 WARNINGS AFFECTING 13 LINES
+-----------------------------------------------------------------------------------------------------
+  1 | ERROR   | Missing file doc comment
+  8 | ERROR   | Content of the @author tag must be in the form "Display Name <username@example.com>"
+  9 | WARNING | Invalid version "1.0" in doc comment; consider "Release: <package_version>" instead
+ 10 | ERROR   | Missing @category tag in class comment
+ 10 | ERROR   | Missing @license tag in class comment
+ 10 | ERROR   | Missing @link tag in class comment
+ 20 | WARNING | Line exceeds 85 characters; contains 88 characters
+ 30 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 49 | ERROR   | Private method name "Database::connect" must be prefixed with an underscore
+ 53 | WARNING | Line exceeds 85 characters; contains 126 characters
+ 60 | ERROR   | Doc comment for parameter "$sql" missing
+ 60 | ERROR   | Doc comment for parameter "$values" missing
+ 65 | WARNING | Line exceeds 85 characters; contains 99 characters
+ 70 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 86 | WARNING | Line exceeds 85 characters; contains 135 characters
+ 99 | ERROR   | Private method name "Database::disconnect" must be prefixed with an underscore
+-----------------------------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/core/Model.php
+-----------------------------------------------------------------------
+FOUND 10 ERRORS AFFECTING 6 LINES
+-----------------------------------------------------------------------
+  1 | ERROR | Missing file doc comment
+  8 | ERROR | Missing @category tag in class comment
+  8 | ERROR | Missing @package tag in class comment
+  8 | ERROR | Missing @author tag in class comment
+  8 | ERROR | Missing @license tag in class comment
+  8 | ERROR | Missing @link tag in class comment
+ 28 | ERROR | Doc comment for parameter "$keyValues" missing
+ 32 | ERROR | Missing @return tag in function comment
+ 41 | ERROR | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 42 | ERROR | Expected "if (...) {\n"; found "if(...) {\n"
+-----------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/core/View.php
+-----------------------------------------------------------------------------------------------------
+FOUND 9 ERRORS AND 1 WARNING AFFECTING 7 LINES
+-----------------------------------------------------------------------------------------------------
+  1 | ERROR   | Missing file doc comment
+  8 | ERROR   | Content of the @author tag must be in the form "Display Name <username@example.com>"
+  9 | WARNING | Invalid version "1.0" in doc comment; consider "Release: <package_version>" instead
+ 10 | ERROR   | Missing @category tag in class comment
+ 10 | ERROR   | Missing @license tag in class comment
+ 10 | ERROR   | Missing @link tag in class comment
+ 18 | ERROR   | Doc comment for parameter "$pathToView" missing
+ 18 | ERROR   | Doc comment for parameter "$payload" missing
+ 42 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 50 | ERROR   | Doc comment for parameter "$pathToView" missing
+-----------------------------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/core/Router.php
+----------------------------------------------------------------------------------------------------------
+FOUND 16 ERRORS AND 11 WARNINGS AFFECTING 23 LINES
+----------------------------------------------------------------------------------------------------------
+   1 | ERROR   | Missing file doc comment
+   5 | WARNING | Line exceeds 85 characters; contains 95 characters
+   7 | ERROR   | Missing @category tag in class comment
+   7 | ERROR   | Missing @package tag in class comment
+   7 | ERROR   | Missing @author tag in class comment
+   7 | ERROR   | Missing @license tag in class comment
+   7 | ERROR   | Missing @link tag in class comment
+  18 | ERROR   | Doc comment for parameter "$requestURI" missing
+  41 | ERROR   | Expected "while (...) {\n"; found "while(...) {\n"
+  48 | WARNING | Line exceeds 85 characters; contains 93 characters
+  54 | WARNING | Line exceeds 85 characters; contains 99 characters
+  82 | ERROR   | Missing @return tag in function comment
+  83 | ERROR   | Private method name "Router::getController" must be prefixed with an underscore
+  91 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+  94 | WARNING | Line exceeds 85 characters; contains 87 characters
+ 103 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 106 | WARNING | Line exceeds 85 characters; contains 152 characters
+ 109 | WARNING | Line exceeds 85 characters; contains 175 characters
+ 116 | WARNING | Line exceeds 85 characters; contains 116 characters
+ 117 | ERROR   | Missing @return tag in function comment
+ 118 | ERROR   | Private method name "Router::getProtectedController" must be prefixed with an underscore
+ 120 | WARNING | Line exceeds 85 characters; contains 111 characters
+ 124 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 130 | ERROR   | Missing @return tag in function comment
+ 136 | WARNING | Line exceeds 85 characters; contains 126 characters
+ 138 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 161 | WARNING | Line exceeds 85 characters; contains 139 characters
+----------------------------------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/loadBasicMVC.php
+-------------------------------------------------------------------------
+FOUND 9 ERRORS AND 1 WARNING AFFECTING 10 LINES
+-------------------------------------------------------------------------
+  2 | ERROR   | You must use "/**" style comments for a file comment
+ 10 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 19 | ERROR   | Expected "if (...) {\n"; found "if(...) { "
+ 47 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 54 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 59 | ERROR   | Expected "foreach (...) {\n"; found "foreach(...) {\n"
+ 62 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 72 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 73 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 78 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+-------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/controllers/logs/php/index.controller.php
+-------------------------------------------------------------------------------------------------------
+FOUND 15 ERRORS AND 3 WARNINGS AFFECTING 13 LINES
+-------------------------------------------------------------------------------------------------------
+  1 | ERROR   | Missing file doc comment
+  6 | ERROR   | Missing @category tag in class comment
+  6 | ERROR   | Missing @package tag in class comment
+  6 | ERROR   | Missing @author tag in class comment
+  6 | ERROR   | Missing @license tag in class comment
+  6 | ERROR   | Missing @link tag in class comment
+ 10 | ERROR   | Doc comment for parameter "$pathToView" missing
+ 10 | ERROR   | Doc comment for parameter "$payload" missing
+ 11 | WARNING | Line exceeds 85 characters; contains 126 characters
+ 12 | ERROR   | Missing @return tag in function comment
+ 13 | ERROR   | Private method name "PHPLogController::createView" must be prefixed with an underscore
+ 15 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 26 | ERROR   | Missing @return tag in function comment
+ 29 | ERROR   | Expected "if (...) {\n"; found "if(...) { "
+ 38 | WARNING | Line exceeds 85 characters; contains 93 characters
+ 65 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 67 | ERROR   | Missing @return tag in function comment
+ 70 | ERROR   | Expected "if (...) {\n"; found "if(...) { "
+-------------------------------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/controllers/logs/debug/index.controller.php
+---------------------------------------------------------------------------------------------------------
+FOUND 15 ERRORS AND 4 WARNINGS AFFECTING 14 LINES
+---------------------------------------------------------------------------------------------------------
+  1 | ERROR   | Missing file doc comment
+  7 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 10 | ERROR   | Missing @category tag in class comment
+ 10 | ERROR   | Missing @package tag in class comment
+ 10 | ERROR   | Missing @author tag in class comment
+ 10 | ERROR   | Missing @license tag in class comment
+ 10 | ERROR   | Missing @link tag in class comment
+ 14 | ERROR   | Doc comment for parameter "$pathToView" missing
+ 14 | ERROR   | Doc comment for parameter "$payload" missing
+ 15 | WARNING | Line exceeds 85 characters; contains 126 characters
+ 16 | ERROR   | Missing @return tag in function comment
+ 17 | ERROR   | Private method name "PHPDebugController::createView" must be prefixed with an underscore
+ 19 | ERROR   | Expected "if (...) {\n"; found "if(...) {\n"
+ 30 | ERROR   | Missing @return tag in function comment
+ 33 | ERROR   | Expected "if (...) {\n"; found "if(...) { "
+ 43 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 72 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 74 | ERROR   | Missing @return tag in function comment
+ 77 | ERROR   | Expected "if (...) {\n"; found "if(...) { "
+---------------------------------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/views/logs/php/index.view.php
+--------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+--------------------------------------------------------------------------------------
+  7 | ERROR   | Missing file doc comment
+ 17 | WARNING | Line exceeds 85 characters; contains 143 characters
+--------------------------------------------------------------------------------------
+
+
+FILE: /Applications/MAMP/htdocs/BasicMVC/vendor/BasicMVC/views/logs/debug/index.view.php
+----------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+----------------------------------------------------------------------------------------
+  7 | ERROR   | Missing file doc comment
+ 17 | WARNING | Line exceeds 85 characters; contains 145 characters
+----------------------------------------------------------------------------------------
+
+Time: 85ms; Memory: 6MB

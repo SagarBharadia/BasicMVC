@@ -5,7 +5,8 @@
  * This class will handle the routing for the application. Once the environment has been setup,
  * the runRoute() function will be called to process the request.
  */
-class Router {
+class Router
+{
     protected $fullRequestURI;
     protected $path;
     protected $query;
@@ -16,9 +17,11 @@ class Router {
     protected $controllerToLoadPath;
     /**
      * Constructor, runs when a new instance is created.
+     *
      * @return void
      */
-    public function __construct(string $requestURI) {
+    public function __construct(string $requestURI)
+    {
         // Getting the protectedRoutes that have been loaded.
         global $protectedRoutes;
 
@@ -26,7 +29,7 @@ class Router {
         $this->fullRequestURI = $requestURI;
 
         // Exploding the url
-        $parts = explode('/',$requestURI);
+        $parts = explode('/', $requestURI);
         // Getting the file targetted
         $this->targetFile = array_pop($parts);
 
@@ -52,20 +55,20 @@ class Router {
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
             if (isset($_POST['_method'])) {
                 switch(strtolower($_POST['_method'])) {
-                    case 'post':
-                        $this->requestMethod = 'post';
-                        break;
-                    case 'put':
-                        $this->requestMethod = 'put';
-                        break;
-                    case 'update':
-                        $this->requestMethod = 'update';
-                        break;
-                    case 'delete':
-                        $this->requestMethod = 'delete';
-                        break;
-                    default:
-                        throw new Exception("Request Method not recognised.");
+                case 'post':
+                    $this->requestMethod = 'post';
+                    break;
+                case 'put':
+                    $this->requestMethod = 'put';
+                    break;
+                case 'update':
+                    $this->requestMethod = 'update';
+                    break;
+                case 'delete':
+                    $this->requestMethod = 'delete';
+                    break;
+                default:
+                    throw new Exception("Request Method not recognised.");
                         break;
                 }
             } else {
@@ -77,7 +80,8 @@ class Router {
     /**
      * Will get the appropriate controller in relation to the request uri.
      */
-    private function getController() {
+    private function getController()
+    {
         // Setting path to the controllers directory.
         $pathToControllerDir = APP_ROOT."controllers/";
 
@@ -111,7 +115,8 @@ class Router {
     /**
      * Will get a controller corresponding to the protected routes from basicmvc if the environment in config is dev
      */
-    private function getProtectedController() {
+    private function getProtectedController()
+    {
         $pathToProtectedController = APP_ROOT."vendor/BasicMVC/controllers/".$this->dir."index.controller.php";
         if (file_exists($pathToProtectedController)) {
             $this->controllerToLoadPath = $pathToProtectedController;
@@ -123,14 +128,15 @@ class Router {
     /**
      * Will run the route against the class.
      */
-    public function runRoute() {
+    public function runRoute()
+    {
 
         $isProtectedRoute = false;
 
         // If the url starts with any of the routes in protectedRoutes.json then it will not show the logs unless in dev mode.
         // Otherwise it will show a 403 error.
         foreach($this->protectedRoutes as $pR) {
-            if ( substr($this->dir, 0, strlen($pR)) == $pR ) {
+            if (substr($this->dir, 0, strlen($pR)) == $pR ) {
                 $isProtectedRoute = true;
             }
         }
@@ -149,7 +155,7 @@ class Router {
             return abort(404);
         }
 
-        if ( method_exists($this->controller, $this->requestMethod) )  {
+        if (method_exists($this->controller, $this->requestMethod) ) {
             return $this->controller->{$this->requestMethod}();
         } else {
             error_log("BadMethodCall: $this->requestMethod doesn't exist in Controller ({$this->controllerToLoadPath}). Returned 404.", 0);
@@ -161,5 +167,7 @@ class Router {
     /**
      * Destructor, runs when a the instance is no longer in use;
      */
-    public function __destruct() {}
+    public function __destruct()
+    {
+    }
 }

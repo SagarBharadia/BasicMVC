@@ -15,9 +15,10 @@ foreach( $config->database as $key => $value) {
 define('APP_ENV', $config->env);
 
 // Setting error handling settings
-ini_set('display_errors', FALSE);
-if(APP_ENV == 'dev') ini_set('display_errors', TRUE);
-ini_set('log_errors', TRUE);
+ini_set('display_errors', false);
+if(APP_ENV == 'dev') { ini_set('display_errors', true);
+}
+ini_set('log_errors', true);
 ini_set('error_log', APP_ROOT.'logs/php/'.date("d-m-y").'.log');
 
 // Setting debug handling settings
@@ -44,7 +45,7 @@ foreach ($reqBasicMVCFiles as $file) {
         if (!is_dir($pathToFile)) {
             $fileInfo = pathinfo($pathToFile);
             if($fileInfo['extension'] == "php") {
-                require_once $pathToFile;
+                include_once $pathToFile;
             }
         }
     }
@@ -59,7 +60,7 @@ foreach ( $reqBasicMVCDir as $namespace ) {
                 if (!is_dir($file)) {
                     $fileInfo = pathinfo($dir.$file);
                     if($fileInfo['extension'] == "php") {
-                        require_once $dir.$file;
+                        include_once $dir.$file;
                     }
                 }
             }
@@ -75,7 +76,7 @@ if(is_dir(APP_ROOT."lib_php/")) {
             if (!is_dir($filePath)) {
                 $fileInfo = pathinfo($filePath);
                 if($fileInfo['extension'] == "php") {
-                    require_once $filePath;
+                    include_once $filePath;
                 }
             }
         }
